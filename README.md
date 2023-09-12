@@ -15,27 +15,27 @@ Team : Kyeongwon Cho, Yukyeong Kang, Taeyoung Kim, Hyoeun Ahn
 --------------------------------
 
 ## Files to be replaced
-
+```
 EmoPic
 
+ └ mysite
+
+​	 └ .cache
+
+​		 └  kobert_v1.zip
+
 ​	└ mysite
 
-​		 └ .cache
-
-​			  └  **kobert_v1.zip**
-
-​	└ mysite
-
-​		└ **surprise.pt**
+​		└ surprise.pt
 
 ​	└ stargan
 
 ​		└ models
 
-​			└  **300000-D.ckpt**
+​			└ 300000-D.ckpt
 
-​			└  **300000-G.ckpt**
-
+​			└ 300000-G.ckpt
+```
 * kobert_v1.zip
 
   ​	should be the trained model of kobert
