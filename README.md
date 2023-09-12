@@ -54,6 +54,6 @@ EmoPic
 
  Simulation based on python 3.7
  
- Versions in requirements.txt are not mandatory. It's only the version used for our project.
+ Versions in [requirements.txt](requirements.txt) are not mandatory. It's only the version used for our project.
 
  Please refer to the KoBert's and the StarGan's dependecies.
