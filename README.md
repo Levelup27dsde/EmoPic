@@ -68,4 +68,4 @@ EmoPic
 
 ## etc.
 
-![certificate](images/[D27] 상장(문제해결빅데이터활용프로젝트)_최우수상_3조.jpg)
+![certificate](images/[D27]_상장(문제해결빅데이터활용프로젝트)_최우수상_3조.jpg)
