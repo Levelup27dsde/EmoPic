@@ -1,4 +1,4 @@
-![example](E:/EmoPic/Github/images/example.png)
+![example](images/example.png)
 
 
 
