@@ -1,0 +1,42 @@
+/* 텍스트 입력 스타일 */
+.text-input {
+    width: 95%; /* 텍스트 입력 박스 너비 조정 */
+    height: 100px;
+    resize: vertical;
+}
+
+/* 업로드한 사진 미리보기 */
+#image-preview {
+    max-width: 100%;
+    max-height: 300px;
+    margin-top: 10px;
+}
+
+/* 스타일 지정할 form 클래스 */
+.custom-form {
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin: 10px;
+    border-radius: 5px;
+    background-color: #f0f0f0;
+}
+.custom-form label {
+    display: block; /* 제목을 블록 레벨 요소로 표시 */
+    font-size: 18px; /* 원하는 크기로 조정 */
+    margin-bottom: 8px; /* 아래쪽 여백 추가 */
+}
+
+.custom-form button[type="submit"] {
+    background-color: #4f72ee;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 15px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.custom-form button[type="submit"]:hover {
+    background-color: #355ac1;
+}

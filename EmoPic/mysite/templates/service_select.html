@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+        {% load static %}
+    <link rel="stylesheet" href="{% static 'css/basic_font.css' %}">
+    <link rel="stylesheet" href="{% static 'css/basic.css' %}">
+    <script src="{% static 'js/basic.js' %}"></script>
+
+</head>
+<body style="background-color: #c9d4ff;">
+
+
+<div class="basic_background">
+    <div class="basic_menu">
+        <div id="button_dashboard" onclick="location.href='/'">
+            <div id="dashboard_circle"></div>
+        </div>
+        <div id="button_service" onclick="location.href='/service'" style="background-color: #4f72ee; border-right: 5px solid #0d37d0;">
+            <div id="service_circle"></div>
+        </div>
+        <div id="button_login"  onclick="location.href='/users/login/'">
+            <div id="login_circle"></div>
+        </div>
+
+        <div id="button_margin"></div>
+    </div>
+    <div class="basic_window2" style="background-color: white;">
+
+    <!--여기에 내용을 추가하시면 됩니다!!!-->
+
+        <div class="bottom_right_text_container" onclick="location.href='/service3'">
+            <div class="bottom_right_text" >
+                선택 완료
+            </div>
+        </div>
+        <script>
+            function checkLoginStatus() {
+
+            var isAuthenticated = {{ request.user.is_authenticated|lower }};
+            if (isAuthenticated) {
+                document.getElementById("button_login").style.display = "none";
+            }
+        }
+
+        window.onload = checkLoginStatus;
+
+        </script>
+
+    </div>
+</div>
+
+</body>
+</html>

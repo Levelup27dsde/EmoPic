@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+        {% load static %}
+    <link rel="stylesheet" href="{% static 'css/basic_font.css' %}">
+    <link rel="stylesheet" href="{% static 'css/basic.css' %}">
+    <link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
+    <script src="{% static 'js/basic.js' %}"></script>
+
+</head>
+<body style="background-color: #c9d4ff;">
+
+<div class="basic_background">
+    <div class="basic_menu">
+        <div id="button_dashboard" style="background-color: #4f72ee; border-right: 5px solid #0d37d0;" onclick="location.href='/'">
+            <div id="dashboard_circle"></div>
+        </div>
+        <div id="button_service" onclick="location.href='/service'">
+            <div id="service_circle"></div>
+        </div>
+         <div id="button_login"  onclick="location.href='/users/login/'">
+            <div id="login_circle"></div>
+        </div>
+        <div id="button_margin"></div>
+    </div>
+    <div class="basic_window" style="background-color: white;">
+
+        <span style="text-align: left; color: #0d37d0; font-family: 'NotoSansKR-Bold'; font-size: 30px;">Dashboard</span>
+        <br>
+        <span style="text-align: left; color: #95aaff; font-family: 'NotoSansKR-Bold'; font-size: 30px;">Text data</span>
+        {% if request.user.is_authenticated %}
+            <p>Welcome, {{ request.user.username }}!</p>
+            <form action="{% url 'users:logout' %}" method="post">
+                {% csrf_token %}
+
+                <button type="submit" style="text-decoration: none; background-color: #849ff;
+               border-radius: 3px 3px 3px 3px;" >Logout</button>
+            </form>
+        {% else %}
+            <p>Welcome, Guest!</p>
+        {% endif %}
+        <br>
+
+
+
+        <div class="body1" style="height: 430px; width: 85vw;">
+            <div class="chart_container" style="width: 420px; height: 420px;">
+                <img class="chart_img" src="{% static 'images/text-감정분류차트4.jpg' %}" style="width: 370px; height: 370px;">
+                    <div class="chart_name">
+                        감정별 데이터 분포
+                    </div>
+                </img>
+            </div>
+            <div class="chart_container" style="width: 420px; height: 420px;">
+                <img class="chart_img" src="{% static 'images/text 발화문길이1.png' %}" style="width: 370px; height: 370px;">
+                <div class="chart_name">
+                    전체 발화문 길이
+                </div>
+                </img>
+             </div>
+             <div class="chart_container" style="width: 420px; height: 420px;">
+                 <img class="chart_img" src="{% static 'images/감정별 발화길이.png' %}" style="width: 370px; height: 370px;">
+                     <div class="chart_name">
+                         감정별 발화문 길이
+                     </div>
+                 </img>
+             </div>
+        </div>
+
+
+    <div class="body1" style="height: 430px; width: 85vw;">
+        <div class="chart_container" style="width: 1300px; height: 400px;">
+            <img class="chart_img" src="{% static 'images/감정 전체 워드클라우드.png' %}" style="width: 500px; height: 300px;">
+                <div class="chart_name">
+                    텍스트 데이터 전체 워드클라우드
+                </div>
+            </img>
+        </div>
+                    </div>
+
+    <div class="body1" style="height: 330px; width: 85vw;">
+       <div class="chart_container" style="width: 640px; height: 300px;">
+           <img class="chart_img" src="{% static 'images/슬픔 워드클라우드.png' %}" style="width: 500px; height: 250px;">
+           <div class="chart_name">
+               감정별 워드클라우드 : 슬픔
+           </div>
+           </img>
+        </div>
+        <div class="chart_container" style="width: 640px; height: 300px;">
+            <img class="chart_img" src="{% static 'images/분노 워드클라우드.png' %}" style="width: 500px; height: 250px;">
+                <div class="chart_name">
+                    감정별 워드클라우드 : 분노
+                </div>
+            </img>
+        </div>
+    </div>
+    <div class="body1" style="height: 330px; width: 85vw;">
+        <div class="chart_container" style="width: 640px; height: 300px;">
+            <img class="chart_img" src="{% static 'images/기쁨.png' %}" style="width: 500px; height: 250px;">
+            <div class="chart_name">
+                감정별 워드클라우드 : 기쁨
+            </div>
+            </img>
+         </div>
+         <div class="chart_container" style="width: 640px; height: 300px;">
+             <img class="chart_img" src="{% static 'images/불안.png' %}" style="width: 500px; height: 250px;">
+                 <div class="chart_name">
+                     감정별 워드클라우드 : 불안
+                 </div>
+             </img>
+         </div>
+     </div>
+     <div class="body1" style="height: 330px; width: 85vw;">
+        <div class="chart_container" style="width: 640px; height: 300px;">
+            <img class="chart_img" src="{% static 'images/중립.png' %}" style="width: 500px; height: 250px;">
+            <div class="chart_name">
+                감정별 워드클라우드 : 중립
+            </div>
+            </img>
+         </div>
+         <div class="chart_container" style="width: 640px; height: 300px;">
+             <img class="chart_img" src="{% static 'images/당황.png' %}" style="width: 500px; height: 250px;">
+                 <div class="chart_name">
+                     감정별 워드클라우드 : 당황
+                 </div>
+             </img>
+         </div>
+     </div>
+  
+
+        <br>
+        <span style="text-align: left; color: #95aaff; font-family: 'NotoSansKR-Bold'; font-size: 30px;">Image data</span>
+
+
+
+        <div class="body1" style="height: 430px; width: 85vw;">
+            <div class="chart_container" style="width: 400px; height: 400px;">
+                <img class="chart_img" src="{% static 'images/이미지 성별.png' %}" style="width: 370px; height: 250px;">
+                <div class="chart_name">
+                    <br>
+                    성별 분포
+                </div>
+                </img>
+             </div>
+             <div class="chart_container" style="width: 400px; height: 400px;">
+                 <img class="chart_img" src="{% static 'images/연령별.png' %}" style="width: 300px; height: 250px;">
+                     <div class="chart_name">
+                        <br>
+                         연령별 분포
+                     </div>
+                 </img>
+             </div>
+             <div class="chart_container" style="width: 400px; height: 400px;">
+                <img class="chart_img" src="{% static 'images/감정별 분포1.png' %}" style="width: 310px; height: 270px;">
+                    <div class="chart_name">
+                       <br>
+                        감정별 분포
+                    </div>
+                </img>
+            </div>
+     
+         </div>
+
+
+
+
+        <div class="body1" style="height: 200px;"></div>
+
+        <script>
+    // 서버에서 로그인 상태를 확인하는 함수를 호출하는 예제입니다.
+    function checkLoginStatus() {
+        // 서버에 로그인 상태를 확인하는 요청을 보내고, 그 결과를 처리합니다.
+        // 이 예제에서는 로그인 상태를 무조건 true로 가정합니다.
+        var isAuthenticated = {{ request.user.is_authenticated|lower }};
+
+        if (isAuthenticated) {
+            // 로그인 상태일 때 버튼을 숨깁니다.
+            document.getElementById("button_login").style.display = "none";
+        }
+    }
+
+    // 페이지가 로드될 때 로그인 상태를 확인합니다.
+    window.onload = checkLoginStatus;
+</script>
+
+
+    </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+        {% load static %}
+    <link rel="stylesheet" href="{% static 'css/basic_font.css' %}">
+    <link rel="stylesheet" href="{% static 'css/basic.css' %}">
+    <link rel="stylesheet" href="{% static 'css/input.css' %}">
+
+    <script src="{% static 'js/basic.js' %}"></script>
+
+
+</head>
+<body style="background-color: #c9d4ff;">
+
+<div class="basic_background">
+    <div class="basic_menu">
+        <div id="button_dashboard" onclick="location.href='/'">
+            <div id="dashboard_circle"></div>
+        </div>
+        <div id="button_service" onclick="location.href='/service'" style="background-color: #4f72ee; border-right: 5px solid #0d37d0;">
+            <div id="service_circle"></div>
+        </div>
+        <div id="button_login" onclick="location.href='/users/login/'">
+            <div id="login_circle"></div>
+        </div>
+
+        <div id="button_margin"></div>
+    </div>
+    <div class="basic_window2" style="background-color: white;">
+
+                <span style="text-align: left; color: #0d37d0; font-family: 'NotoSansKR-Bold'; font-size: 30px;">Service</span>
+
+
+
+
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <button type="submit">배경제거</button>
+        </form>
+
+        <br><br><br>
+        <img src="{% url 'serve_image' 'result.jpg' %}" alt="Result Image">
+        <br><br><br>
+
+            <!--배경제거 미리보기-->
+    {% if preview_image %}
+        <img src="{% static 'no-bg.png' %}" alt="오류">
+    {% endif %}
+        <br><br><br>
+        <span style="color: #0d37d0; font-family: 'NotoSansKR-Bold';">감정 분석 결과</span>
+        {% csrf_token %}
+        <span style="font-weight:bold;">{{ predicted_sentence }} </span>
+
+
+
+
+
+    </div>
+
+
+
+
+</div>
+
+    <script>
+    function checkLoginStatus() {
+
+            var isAuthenticated = {{ request.user.is_authenticated|lower }};
+            if (isAuthenticated) {
+                document.getElementById("button_login").style.display = "none";
+            }
+        }
+
+        window.onload = checkLoginStatus;
+
+
+    </script>
+</body>
+</html>

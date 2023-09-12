@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+        {% load static %}
+    <link rel="stylesheet" href="{% static 'css/basic_font.css' %}">
+    <link rel="stylesheet" href="{% static 'css/basic.css' %}">
+    <link rel="stylesheet" href="{% static 'css/input.css' %}">
+
+    <script src="{% static 'js/basic.js' %}"></script>
+
+
+</head>
+<body style="background-color: #c9d4ff;">
+
+
+<div class="basic_background">
+    <div class="basic_menu">
+        <div id="button_dashboard" onclick="location.href='/'">
+            <div id="dashboard_circle"></div>
+        </div>
+        <div id="button_service" onclick="location.href='/service'" style="background-color: #4f72ee; border-right: 5px solid #0d37d0;">
+            <div id="service_circle"></div>
+        </div>
+
+        <div id="button_login"  onclick="location.href='/users/login/'">
+            <div id="login_circle"></div>
+        </div>
+        <div id="button_margin"></div>
+    </div>
+    <div class="basic_window2" style="background-color: white;">
+
+                <span style="text-align: left; color: #0d37d0; font-family: 'NotoSansKR-Bold'; font-size: 30px;">Service</span>
+        <br>
+        <span style="text-align: left; color: #95aaff; font-family: 'NotoSansKR-Bold'; font-size: 25px;">감정을 분석할 텍스트를 입력해주세요.</span>
+
+
+        <!-- 텍스트 입력 폼 -->
+    <div class="custom-form" style="height: 70px">
+
+        <span style="text-align: left; color: #0d37d0; font-family: 'NotoSansKR-Light'; font-size: 15px;">이미지에서 문자를 추출하여 사용할 수 있습니다.</span>
+
+        <form method="post" enctype="multipart/form-data" action="/service/">
+            {% csrf_token %}
+            <label for="image"></label>
+            <input type="file" name="image" accept="image/*" required>
+            <button type="submit">이미지에서 문자 추출</button>
+        </form>
+</div>
+
+    <form action="{% url 'predict_emotion' %}" method="post" class="custom-form" onsubmit="return checkProfanityAndSubmit();">
+    {% csrf_token %}
+    <label for="text-input">발화문</label>
+    <textarea class="text-input" name="text_input" id="text-input" placeholder="문장 혹은 상황을 구체적으로 적어주세요.">{% if response_text %}{{ response_text }}{% endif %}</textarea>
+    <button type="submit">감정 확인</button>
+    </form>
+
+
+                {% if input_text %}
+        <div class="custom-form" style="height: 90px">
+            <p>
+                <span style="color: #0d37d0; font-family: 'NotoSansKR-Bold';">입력 문장:</span>
+                <span>{{ input_text }}</span>
+            </p>
+            <p>
+                <span style="color: #0d37d0; font-family: 'NotoSansKR-Bold';">감정 분석 결과:</span>
+                <span>{{ predicted_sentence }} </span>
+            </p>
+        </div>
+                {% endif %}
+
+
+        <div class="bottom_right_text_container">
+            <a href="/service2/?predicted_sentence={{ predicted_sentence|default:'첫페이지 기본값' }}"
+               style="text-decoration: none; color: white;
+               border-radius: 3px 3px 3px 3px;">다음</a>
+        </div>
+
+    </div>
+</div>
+
+<script>
+    function checkProfanityAndSubmit() {
+        // List of profanity words
+        const profanityWords = ['가오리방쯔', '간나새끼', '갈보', '개나리', '개년', '개새끼', '개소리', '개슬람', '개씹', '개좆', '개차반', '걸레', '광녀', '광년이', '괴뢰군', '귀축', '급식충', '김치녀', '꺼벙이', '꼰대', '꼴통', '너같은새끼는뻑큐가최고야', '년', '노망', '놈', '닥쳐', '대가리', '등신', '딸딸이', '또라이', '띠또', '레기', '맘충', '멍청이', '무뇌', '문디', '미개', '미치광이', '미친개', '미친년', '미친놈', '바보', '바보멍청이해삼멍게말미잘', '벌레', '병신', '보지', '빌어먹을', '빨갱이', '새끼', '손가락욕', '싸가지', '싸개', '쌍욕', '썅', '쓰레기', '씨발', '씨발련아', '씨발아줌마', '씹', '애자', '야언좆', '에라이씨발', '엠창', '엿', '옐로우페이스', '욕설', '육변기', '육변기', '육시랄', '인간말종', '인생은실전이야좆만아', '존나', '졸라', '좆', '좆같다', '좆까', '지랄발광', '짱', '창녀', '틀딱', '틀딱사례', '틀딱표현에대한의견', '피싸개', '한남충', '한녀', '혐', '호로', '화냥년', '후레자식'];
+
+        // Get the text from the textarea
+        const text = document.getElementById('text-input').value;
+
+        // Check if the text contains any profanity word
+        const containsProfanity = profanityWords.some(profanity => text.includes(profanity));
+
+        if (containsProfanity) {
+            alert('욕설이 포함되어 있습니다. 다시 입력해주세요!');
+            return false;
+        } else {
+            // Proceed with form submission
+            return true;
+        }
+    }
+
+    function checkLoginStatus() {
+
+        var isAuthenticated = {{ request.user.is_authenticated|lower }};
+        if (isAuthenticated) {
+            document.getElementById("button_login").style.display = "none";
+        }
+    }
+
+    window.onload = checkLoginStatus;
+
+
+</script>
+
+</body>
+</html>

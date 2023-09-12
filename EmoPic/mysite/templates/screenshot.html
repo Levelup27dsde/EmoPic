@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+        {% load static %}
+    <link rel="stylesheet" href="{% static 'css/basic_font.css' %}">
+    <link rel="stylesheet" href="{% static 'css/basic.css' %}">
+    <link rel="stylesheet" href="{% static 'css/input.css' %}">
+
+    <script src="{% static 'js/basic.js' %}"></script>
+
+
+</head>
+<body style="background-color: #c9d4ff;">
+
+
+<div class="basic_background">
+    <div class="basic_menu">
+        <div id="button_dashboard" onclick="location.href='/'">
+            <div id="dashboard_circle"></div>
+        </div>
+        <div id="button_service" style="background-color: #4f72ee; border-right: 5px solid #0d37d0;">
+            <div id="service_circle"></div>
+        </div>
+         <div id="button_login"  onclick="location.href='/users/login/'">
+            <div id="login_circle"></div>
+        </div>
+
+        <div id="button_margin"></div>
+    </div>
+    <div class="basic_window2" style="background-color: white;">
+
+                <span style="text-align: left; color: #0d37d0; font-family: 'NotoSansKR-Bold'; font-size: 30px;">Service</span>
+        <br>
+        <span style="text-align: left; color: #95aaff; font-family: 'NotoSansKR-Bold'; font-size: 25px;">이미지를 가져올 url을 입력해주세요</span>
+
+<form method="post">
+    {% csrf_token %}
+    <input type="text" name="url" placeholder="Enter URL">
+    <button type="submit">url 이미지 가져오기</button>
+
+      <script>
+
+    function checkLoginStatus() {
+
+        var isAuthenticated = {{ request.user.is_authenticated|lower }};
+
+        if (isAuthenticated) {
+            .
+            document.getElementById("button_login").style.display = "none";
+        }
+    }
+
+    window.onload = checkLoginStatus;
+</script>
+
+    </div>
+    </div>
+</body>
+</html>

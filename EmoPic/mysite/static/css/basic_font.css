@@ -1,0 +1,26 @@
+@font-face {
+    font-family: 'NotoSansKR-Light';
+    src: url('resources/font/NotoSansKR-Light.otf');
+}
+
+@font-face {
+    font-family: 'NotoSansKR-Bold';
+    src: url('resources/font/NotoSansKR-Bold.otf');
+}
+
+@font-face {
+    font-family: 'NotoSansKR-Regular';
+    src: url('resources/font/NotoSansKR-Regular.otf');
+}
+
+
+/* 밑에 클래스, id 자유롭게 추가하고 사용하세요!!
+
+
+<참고 예시>
+.styletheme3{
+    font-family: "NotoSansKR-Bold";
+    color: #484848;
+    font-size: 15pt;
+
+*/

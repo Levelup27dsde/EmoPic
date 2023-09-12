@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+        {% load static %}
+    <link rel="stylesheet" href="{% static 'css/basic_font.css' %}">
+    <link rel="stylesheet" href="{% static 'css/basic.css' %}">
+    <link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
+    <script src="{% static 'js/basic.js' %}"></script>
+
+</head>
+<body style="background-color: #c9d4ff;">
+
+
+    <div class="basic_background">
+    <div class="basic_menu">
+        <div id="button_dashboard"  onclick="location.href='/'">
+            <div id="dashboard_circle"></div>
+        </div>
+        <div id="button_service" onclick="location.href='/service'">
+            <div id="service_circle"></div>
+        </div>
+        <div id="button_login" style="background-color: #4f72ee; border-right: 5px solid #0d37d0;" onclick="location.href='/users/login/'">
+            <div id="login_circle"></div>
+        </div>
+
+         <div id="button_margin"></div>
+
+    </div>
+    <div class="basic_window" style="background-color: white;">
+
+
+{% block content %}
+<div class="wrapper">
+    <div style="text-align: center;">
+        <h1>로그인</h1>
+        <form method="POST" action="{% url 'users:login' %}">
+            {% csrf_token %}
+            이름:
+            <br>
+            <input name="username" type="text">
+            <br>
+            비밀번호:
+            <br>
+            <input name="password" type="password">
+            <br><br>
+            <input type="submit" class="btn btn-primary" value="Login">
+
+        </form>
+            <button type="submit" onclick="location.href='/users/signup/'">singup</button>
+    </div>
+</div>
+{% endblock %}
+
+
+
+
+</body>

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+        {% load static %}
+    <link rel="stylesheet" href="{% static 'css/basic_font.css' %}">
+    <link rel="stylesheet" href="{% static 'css/basic.css' %}">
+    <link rel="stylesheet" href="{% static 'css/input.css' %}">
+
+    <script src="{% static 'js/basic.js' %}"></script>
+
+
+</head>
+<body style="background-color: #c9d4ff;">
+<script>
+     var ko_emo = "{{ predicted_sentence }}"
+
+     function upload_image(button) {
+        // Disable the button
+        button.disabled = true;
+
+        fetch('/upload_image/', {
+            method: 'POST',
+            body: new FormData(document.querySelector('form')), // This assumes your button is inside a form
+        })
+        .then(response => {
+            if (response.ok) {
+                // Handle success, e.g., redirect to another page
+
+            } else {
+                // Handle error
+                alert('Image upload failed.');
+            }
+        })
+        .catch(error => {
+            // Handle network error
+            console.error('Network error:', error);
+        });
+    }
+</script>
+
+<div class="basic_background">
+    <div class="basic_menu">
+        <div id="button_dashboard" onclick="location.href='/'">
+            <div id="dashboard_circle"></div>
+        </div>
+        <div id="button_service" onclick="location.href='/service'" style="background-color: #4f72ee; border-right: 5px solid #0d37d0;">
+            <div id="service_circle"></div>
+        </div>
+
+        <div id="button_login" onclick="location.href='/users/login/'">
+            <div id="login_circle"></div>
+        </div>
+
+        <div id="button_margin"></div>
+    </div>
+    <div class="basic_window2" style="background-color: white;">
+
+                <span style="text-align: left; color: #0d37d0; font-family: 'NotoSansKR-Bold'; font-size: 30px;">Service</span>
+        <br>
+        <span style="text-align: left; color: #95aaff; font-family: 'NotoSansKR-Bold'; font-size: 25px;">표정을 바꿀 이미지를 선택해주세요.</span>
+
+
+    <form action="/service3/" method="post" enctype="multipart/form-data" class="custom-form" style="height : 400px">
+        {% csrf_token %}
+        <input type="hidden" name="predicted_sentence" value="{{ predicted_sentence }}"> <!--코버트 감정 분석 결과-->
+        <span style="text-align: left; color: #0d37d0; font-family: 'NotoSansKR-Light'; font-size: 15px;">이미지 파일을 직접 선택하거나, 이미지를 가져올 url을 입력할 수 있습니다.</span>
+        <br><br>
+
+        <input type="file" name="image_input" accept="image/*" id="imageInput">
+        <button type="button" onclick="upload_image(this)">
+            이 사진으로 하기
+        </button>
+        <div id="imagePreview"></div>
+
+    <br>
+        <!--url 이미지 업로드-->
+     <a href="{% url 'screenshot' %}" style=" cursor: pointer; height: 35px; width: 100px; font-size: 11px; color:#000000; border: 1px solid #4c4c4c; padding: 3px 5px; text-align: center; text-decoration: none; border-radius: 3px 3px 3px 3px;">url에서 인물 이미지 가져오기</a>
+
+    <span style="text-align: left; color: #7d88ac; font-family: 'NotoSansKR-Light'; font-size: 13px;"> * url에서 인물 이미지 가져오는 법 : 1. 원하는 이미지를 찾는다. 2. 마우스 우클릭 3. 이미지 주소복사</span>
+        <br>
+        {% if resized_image_url %}
+            <img src="{{ resized_image_url }}" width="200" height="200" alt="Screenshot">
+            <input type="hidden" name="resized_image_url" value="{{ resized_image_url }}">
+            {% endif %}
+
+<!--        <span style="color: #0d37d0; font-family: 'NotoSansKR-Bold';">감정 분석 결과:</span>-->
+<!--        <span>{{ predicted_sentence }}</span>-->
+
+        <button style="background-color:blue; border-color:black; float: right;" type="button" class="bottom_right_text" onclick="runMain(ko_emo)">
+            Upload
+        </button>
+      </form>
+
+
+
+    <script>
+        // 이미지 미리보기를 처리하는 JavaScript 코드
+        document.getElementById('imageInput').addEventListener('change', function(event) {
+            var imagePreview = document.getElementById('imagePreview');
+            imagePreview.innerHTML = '';
+            var file = event.target.files[0];
+            var image = document.createElement('img');
+            image.src = URL.createObjectURL(file);
+            image.style.maxWidth = '300px'; // 미리보기 이미지의 최대 너비 설정
+            image.style.maxHeight = '300px'; // 미리보기 이미지의 최대 높이 설정
+            imagePreview.appendChild(image);
+        });
+
+        function checkLoginStatus() {
+
+        var isAuthenticated = {{ request.user.is_authenticated|lower }};
+        if (isAuthenticated) {
+            document.getElementById("button_login").style.display = "none";
+        }
+    }
+
+    window.onload = checkLoginStatus;
+    </script>
+    </div>
+    </div>
+<script>
+
+
+    function runMain(emotion) {
+        var xhr = new XMLHttpRequest();
+        var url = '{% url "run_main" %}';
+        xhr.open('GET', url + '?emotion=' + emotion, true);
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                // Redirect to the result page
+                window.location.href = '{% url "service3" %}';
+
+            }
+        };
+        xhr.send();
+    }
+
+    function checkLoginStatus() {
+
+        var isAuthenticated = {{ request.user.is_authenticated|lower }};
+
+        if (isAuthenticated) {
+
+            document.getElementById("button_login").style.display = "none";
+        }
+    }
+
+    window.onload = checkLoginStatus;
+</script>
+</body>
+</html>
