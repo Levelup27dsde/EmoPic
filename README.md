@@ -1,4 +1,4 @@
-![](E:\EmoPic\Github\example.png)
+![example](\example.png)
 
 
 
