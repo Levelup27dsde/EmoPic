@@ -1,4 +1,4 @@
-![example](\example.png)
+![example](example.png)
 
 
 
