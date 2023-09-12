@@ -12,7 +12,7 @@ KoBert : https://github.com/SKTBrain/KoBERT
 
 StarGan : https://github.com/yunjey/stargan
 
-Team Levelup : [Kyeongwon Cho](https://github.com/F1RERED), Yukyeong Kang, Taeyoung Kim, Hyoeun Ahn
+Team Levelup : [Kyeongwon Cho](https://github.com/F1RERED), [Youkyung Kang](https://github.com/KYK0328), [Taeyoung Kim](https://github.com/xaeyoungkim), Hyoeun Lee
 
 --------------
 
