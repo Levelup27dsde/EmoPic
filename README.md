@@ -14,7 +14,27 @@ StarGan : https://github.com/yunjey/stargan
 
 Team Levelup : [Kyeongwon Cho](https://github.com/F1RERED), Yukyeong Kang, Taeyoung Kim, Hyoeun Ahn
 
--------------
+--------------
+
+## Demonstration videos
+
+<Data dashboard & Login & Signup>
+
+<video src="videos/data_dashboard,login,sign_up.mp4"></video>
+
+<Direct inputs & slang [Surprised]>
+
+<video src="videos/[surprised]slang,direct_input.mp4"></video>
+
+<Using image2text(Naver Cloud OCR) API & screenshotlayer API [Sad]>
+
+<video src="videos/[Sad]img2txt_API,screenshoturl_API.mp4"></video>
+
+<Distribution server(gunicorn & nginx)  [Angry])>
+
+<video src="videos/[angry]distributed_server.mp4"></video>
+
+--------------------------------
 
 ## Files to be replaced
 
