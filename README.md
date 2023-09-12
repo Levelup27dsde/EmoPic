@@ -1,14 +1,16 @@
-![example](example.png)
+![example](images/example.png)
 
 
 
  EmoPic is a service which make changes in facial expressions through Korean text sentiment analysis. The sentiment analysis of Korean text is done by KoBert. The StarGan model is used for making facial expressions changes in pictures.
 
+ 
+
 KoBert : https://github.com/SKTBrain/KoBERT
 
 StarGan : https://github.com/yunjey/stargan
 
-Team : Kyeongwon Cho, Yukyeong Kang, Taeyoung Kim, Hyoeun Ahn
+Team Levelup : [Kyeongwon Cho](https://github.com/F1RERED), Yukyeong Kang, Taeyoung Kim, Hyoeun Ahn
 
 
 
@@ -59,3 +61,11 @@ EmoPic
  Versions in [requirements.txt](requirements.txt) are not mandatory. It's only the version used for our project.
 
  Please refer to the KoBert's and the StarGan's dependecies.
+
+
+
+---------------------------------
+
+## etc.
+
+![certificate](images/[D27] 상장(문제해결빅데이터활용프로젝트)_최우수상_3조.jpg)
