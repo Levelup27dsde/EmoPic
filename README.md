@@ -55,11 +55,7 @@ EmoPic
 ## Requirements
 
  Simulation based on python 3.7
-<<<<<<< HEAD
 
-=======
-
->>>>>>> b75fd2dae8ca025d2c4f1798f383fe84d4d4e2f7
  Versions in [requirements.txt](requirements.txt) are not mandatory. It's only the version used for our project.
 
  Please refer to the KoBert's and the StarGan's dependecies.
