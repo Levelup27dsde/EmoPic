@@ -2,7 +2,7 @@
 
 
 
- EmoPic is service which make changes in facial expressions through Korean text sentiment analysis. The sentiment analysis of Korean text is done by KoBert. The StarGan model is used for making facial expressions changes in pictures.
+ EmoPic is a service which make changes in facial expressions through Korean text sentiment analysis. The sentiment analysis of Korean text is done by KoBert. The StarGan model is used for making facial expressions changes in pictures.
 
 KoBert : https://github.com/SKTBrain/KoBERT
 
