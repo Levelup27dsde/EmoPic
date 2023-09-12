@@ -20,19 +20,19 @@ Team Levelup : [Kyeongwon Cho](https://github.com/F1RERED), Yukyeong Kang, Taeyo
 
 <Data dashboard & Login & Signup>
 
-<video src="videos/data_dashboard,login,sign_up.mp4"></video>
+https://github.com/F1RERED/EmoPic/assets/135773973/c84d1119-4751-4365-a3d6-8a8329e35cd6
 
 <Direct inputs & slang [Surprised]>
 
-<video src="videos/[surprised]slang,direct_input.mp4"></video>
+https://github.com/F1RERED/EmoPic/assets/135773973/e919163a-15fc-4071-ab1b-939fda97d708
 
 <Using image2text(Naver Cloud OCR) API & screenshotlayer API [Sad]>
 
-<video src="videos/[Sad]img2txt_API,screenshoturl_API.mp4"></video>
+https://github.com/F1RERED/EmoPic/assets/135773973/dff9fdf0-eac2-4352-8e58-93166ab9e9ce
 
 <Distribution server(gunicorn & nginx)  [Angry])>
 
-<video src="videos/[angry]distributed_server.mp4"></video>
+https://github.com/F1RERED/EmoPic/assets/135773973/facb4c26-de81-4bad-9485-abffc7fbdf81
 
 --------------------------------
 
