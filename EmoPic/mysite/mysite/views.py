@@ -22,10 +22,10 @@ from django.http import HttpResponseServerError
 from .main import run_stargan
 
 
-service_view_naver_OCR_api_url = 'https://928xn8bira.apigw.ntruss.com/custom/v1/24379/06f3536dc62d4797d79145848e977271ab36f45ef17570b085ddcac4b20ed6b8/general'
-service_view_naver_OCR_secret_key = 'WVdEb3RnRUhXV09PS1VnZXBwWHNkck5Kbk5WYUpEcGw='
-screenshotlayer_capture_screenshot_api_key = 'b8e207820f5f34dadd541678af64d46a'
-service_result_view_removebg_API_key = 'npa3KAydqxfMZsaAYyU4jYkf'
+service_view_naver_OCR_api_url = # Place your API keys here
+service_view_naver_OCR_secret_key = # Place your API keys here
+screenshotlayer_capture_screenshot_api_key = # Place your API keys here
+service_result_view_removebg_API_key = # Place your API keys here
 
 def dashboard_view(request):
     return render(request, "dashboard.html")
