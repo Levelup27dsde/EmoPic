@@ -4,7 +4,7 @@
 
  EmoPic is combined by two words, **emo**tion + **pic**ture. EmoPic is a service which make changes in facial expressions through Korean text sentiment analysis. The sentiment analysis of Korean text is done by KoBert. The StarGan model is used for making facial expressions changes in pictures.
 
- Getting two inputs, text from utterance and a portrait photo, the EmoPic service analyzes the emotion implied in the input text and photoshops the input picture changing the face expression to the analyzed sentiment.
+ Getting two inputs, text from utterance and a portrait photo, the EmoPic service categorizes the emotion implied in the input text in 6 different categories, then photoshops the input picture changing the face expression to the analyzed sentiment.
 
  Text sentiment analysis model is trained my utterance text and face expression changing model is trained by selfies of Koreans with various categories.
 
@@ -45,7 +45,7 @@ EmoPic
 
 	 └ .cache
 
-		 └  kobert_v1.zip
+		 └ kobert_v1.zip
 
 	└ mysite
 
@@ -70,7 +70,7 @@ EmoPic
 
   should be the trained model of sentiment analysis based on kobert
 
-+ 300000-D.ckpt / 300000-G.ckpt 
++ 300000-D.ckpt & 300000-G.ckpt 
 
   should be the trained model of stargan 
 
