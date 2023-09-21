@@ -74,6 +74,37 @@ EmoPic
 
   should be the trained model of stargan 
 
+-------
+
+## API keys
+
+* edit your views.py
+
+service_view_naver_OCR_api_url = # Place your API keys here
+service_view_naver_OCR_secret_key = # Place your API keys here
+
+get your API key from this link :
+
+https://www.ncloud.com/product/aiService/ocr
+
+
+
+screenshotlayer_capture_screenshot_api_key = # Place your API keys here
+
+get your API key from this link :
+
+https://screenshotlayer.com/
+
+
+
+service_result_view_removebg_API_key = # Place your API keys here
+
+get your API key from this link :
+
+https://www.remove.bg/ko
+
+
+
 -------------------------
 
 ## Requirements
